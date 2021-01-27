@@ -20,6 +20,8 @@ import DcentWalletLogo from "../logos/dcentwallet.png";
 import BitskiLogo from "../logos/bitski.svg";
 // @ts-ignore
 import FrameLogo from "../logos/frame.svg";
+// @ts-ignore
+import WanMaskLogo from "../logos/wanmask.png";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -132,4 +134,12 @@ export const FRAME: IProviderInfo = {
   logo: FrameLogo,
   type: "web",
   check: "isFrameNative"
+};
+
+export const WANMASK: IProviderInfo = {
+  id: "wanmask",
+  name: "WanMask",
+  logo: WanMaskLogo,
+  type: "web",
+  check: "isWanchainMask"
 };

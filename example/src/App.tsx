@@ -166,6 +166,7 @@ class App extends React.Component<any, any> {
       ...INITIAL_STATE
     };
 
+    console.log('new web3modal');
     this.web3Modal = new Web3Modal({
       network: this.getNetwork(),
       cacheProvider: true,
@@ -174,13 +175,16 @@ class App extends React.Component<any, any> {
   }
 
   public componentDidMount() {
+    console.log('web3Modal.cachedProvider', this.web3Modal.cachedProvider);
     if (this.web3Modal.cachedProvider) {
       this.onConnect();
     }
   }
 
   public onConnect = async () => {
+    console.log('call web3Modal.connect()');
     const provider = await this.web3Modal.connect();
+    console.log('call web3Modal.connect() return');
 
     await this.subscribeProvider(provider);
 
@@ -193,6 +197,8 @@ class App extends React.Component<any, any> {
     const networkId = await web3.eth.net.getId();
 
     const chainId = await web3.eth.chainId();
+
+    console.log('web3 get');
 
     await this.setState({
       web3,
@@ -209,6 +215,7 @@ class App extends React.Component<any, any> {
     if (!provider.on) {
       return;
     }
+    console.log('subscribeProvider');
     provider.on("close", () => this.resetApp());
     provider.on("accountsChanged", async (accounts: string[]) => {
       await this.setState({ address: accounts[0] });
@@ -233,31 +240,15 @@ class App extends React.Component<any, any> {
 
   public getProviderOptions = () => {
     const providerOptions = {
-      walletconnect: {
-        package: WalletConnectProvider,
-        options: {
-          infuraId: process.env.REACT_APP_INFURA_ID
+      wanmask:{
+        package: {},
+        opts: {
+          config:{}
         }
       },
       torus: {
         package: Torus
       },
-      fortmatic: {
-        package: Fortmatic,
-        options: {
-          key: process.env.REACT_APP_FORTMATIC_KEY
-        }
-      },
-      authereum: {
-        package: Authereum
-      },
-      bitski: {
-        package: Bitski,
-        options: {
-          clientId: process.env.REACT_APP_BITSKI_CLIENT_ID,
-          callbackUrl: window.location.href + "bitski-callback.html"
-        }
-      }
     };
     return providerOptions;
   };
@@ -538,6 +529,7 @@ class App extends React.Component<any, any> {
     if (web3 && web3.currentProvider && web3.currentProvider.close) {
       await web3.currentProvider.close();
     }
+    console.log('web3Modal.clearCachedProvider()');
     await this.web3Modal.clearCachedProvider();
     this.setState({ ...INITIAL_STATE });
   };

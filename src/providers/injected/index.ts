@@ -5,6 +5,8 @@ import Web3DefaultLogo from "../logos/web3-default.svg";
 // @ts-ignore
 import MetaMaskLogo from "../logos/metamask.svg";
 // @ts-ignore
+import WanMaskLogo from "../logos/wanmask.png";
+// @ts-ignore
 import SafeLogo from "../logos/safe.svg";
 // @ts-ignore
 import NiftyWalletLogo from "../logos/niftyWallet.png";
@@ -43,6 +45,14 @@ export const METAMASK: IProviderInfo = {
   logo: MetaMaskLogo,
   type: "injected",
   check: "isMetaMask"
+};
+
+export const WANMASKINJECTED: IProviderInfo = {
+  id: "injected",
+  name: "WanMask",
+  logo: WanMaskLogo,
+  type: "injected",
+  check: "isWanchainMask"
 };
 
 export const SAFE: IProviderInfo = {
