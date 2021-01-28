@@ -1,13 +1,4 @@
-import { IAbstractConnectorOptions } from "../../helpers";
-
-export interface WanMaskOptions extends IAbstractConnectorOptions {
-  config?: any;
-}
-
-const ConnectToWanMask = async (
-  WanMaskProvider: any,
-  opts: WanMaskOptions
-) => {
+const ConnectToWanMask = async () => {
   let provider = null;
   if (typeof window.wanchain !== 'undefined') {
     provider = window.wanchain;
@@ -17,9 +8,9 @@ const ConnectToWanMask = async (
       throw new Error("User Rejected");
     }
   } else if (window.wan3) {
-    provider = window.web3.currentProvider;
+    provider = window.wan3.currentProvider;
   } else {
-    throw new Error("No Web3 Provider found");
+    throw new Error("No WanMask Provider found");
   }
   return provider;
 };

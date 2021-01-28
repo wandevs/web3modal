@@ -169,7 +169,7 @@ class App extends React.Component<any, any> {
     console.log('new web3modal');
     this.web3Modal = new Web3Modal({
       network: this.getNetwork(),
-      cacheProvider: true,
+      cacheProvider: false,
       providerOptions: this.getProviderOptions()
     });
   }
@@ -177,6 +177,9 @@ class App extends React.Component<any, any> {
   public componentDidMount() {
     console.log('web3Modal.cachedProvider', this.web3Modal.cachedProvider);
     if (this.web3Modal.cachedProvider) {
+      if (this.web3Modal.cachedProvider === 'wanmask' && !window.wanchain) {
+        this.web3Modal.clearCachedProvider();
+      }
       this.onConnect();
     }
   }
