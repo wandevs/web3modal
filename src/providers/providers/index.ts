@@ -22,6 +22,8 @@ import BitskiLogo from "../logos/bitski.svg";
 import FrameLogo from "../logos/frame.svg";
 // @ts-ignore
 import WanMaskLogo from "../logos/wanmask.png";
+// @ts-ignore
+import WanWalletLogo from "../logos/wanwallet.png";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -142,4 +144,12 @@ export const WANMASK: IProviderInfo = {
   logo: WanMaskLogo,
   type: "web",
   check: "isWanchainMask"
+};
+
+export const WANWALLET: IProviderInfo = {
+  id: "wanwallet",
+  name: "WanWallet",
+  logo: WanWalletLogo,
+  type: "web",
+  check: "injectWeb3"
 };

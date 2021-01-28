@@ -2,8 +2,8 @@ import * as React from "react";
 import styled from "styled-components";
 import Web3 from "web3";
 import { convertUtf8ToHex } from "@walletconnect/utils";
-
-import Web3Modal from "web3modal";
+import { WanWalletConnector } from '@web3-react-wan/wanwallet-connector'
+import Web3Modal from "../../";
 // @ts-ignore
 import WalletConnectProvider from "@walletconnect/web3-provider";
 // @ts-ignore
@@ -248,6 +248,14 @@ class App extends React.Component<any, any> {
         opts: {
           config:{}
         }
+      },
+      wanwallet:{
+        package: new WanWalletConnector({
+            chainId: 1,
+            url: 'https://gwan-ssl.wandevs.org:56891',
+            pollingInterval: 15000,
+            requestTimeoutMs: 300000
+          })
       },
       torus: {
         package: Torus

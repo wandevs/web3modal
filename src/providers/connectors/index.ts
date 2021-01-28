@@ -11,6 +11,7 @@ import dcentwallet from "./dcentwallet";
 import bitski from "./bitski";
 import frame from "./frame";
 import wanmask from './wanmask';
+import wanwallet from "./wanwallet";
 
 export {
   injected,
@@ -25,5 +26,6 @@ export {
   dcentwallet,
   bitski,
   frame,
-  wanmask
+  wanmask,
+  wanwallet
 };

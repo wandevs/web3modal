@@ -19,6 +19,7 @@ declare global {
     updateWeb3Modal: any;
     wanchain?: any;
     wan3?: any;
+    injectWeb3?: any;
   }
 }
 
