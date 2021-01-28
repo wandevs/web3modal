@@ -6,6 +6,7 @@ const ConnectToWanWallet = async (
     await wanwallet.activate();
     provider = await wanwallet.getProvider();
   } else {
+    window.open('https://wanchain.org/getstarted');
     throw new Error("No Wan Wallet Provider found");
   }
   return provider;
