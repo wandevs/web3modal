@@ -24,6 +24,8 @@ import FrameLogo from "../logos/frame.svg";
 import WanMaskLogo from "../logos/wanmask.png";
 // @ts-ignore
 import WanWalletLogo from "../logos/wanwallet.png";
+// @ts-ignore
+import EzDefiLogo from "../logos/ezdefi.png";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -157,7 +159,7 @@ export const WANWALLET: IProviderInfo = {
 export const EZDEFI: IProviderInfo = {
   id: "ezdefi",
   name: "ezDeFi",
-  logo: WanMaskLogo,
+  logo: EzDefiLogo,
   type: "web",
-  check: "isMetaMask"
+  check: "isEzDefi"
 };

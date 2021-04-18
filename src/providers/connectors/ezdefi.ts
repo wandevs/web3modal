@@ -10,7 +10,7 @@ const ConnectToEzDefi = async () => {
   } else if (window.web3) {
     provider = window.web3.currentProvider;
   } else {
-    throw new Error("No WanMask Provider found");
+    throw new Error("No MetaMask Provider found");
   }
   return provider;
 };
