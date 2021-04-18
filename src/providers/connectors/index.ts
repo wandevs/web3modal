@@ -12,6 +12,8 @@ import bitski from "./bitski";
 import frame from "./frame";
 import wanmask from './wanmask';
 import wanwallet from "./wanwallet";
+import ezdefi from './ezdefi';
+
 
 export {
   injected,
@@ -27,5 +29,6 @@ export {
   bitski,
   frame,
   wanmask,
-  wanwallet
+  wanwallet,
+  ezdefi
 };

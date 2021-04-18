@@ -153,3 +153,11 @@ export const WANWALLET: IProviderInfo = {
   type: "web",
   check: "injectWeb3"
 };
+
+export const EZDEFI: IProviderInfo = {
+  id: "ezdefi",
+  name: "ezDeFi",
+  logo: WanMaskLogo,
+  type: "web",
+  check: "isMetaMask"
+};
