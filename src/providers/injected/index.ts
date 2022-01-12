@@ -28,6 +28,8 @@ import OperaLogo from "../logos/opera.svg";
 import FrameLogo from "../logos/frame.svg";
 // @ts-ignore
 import LiqualityLogo from "../logos/liquality.png";
+// @ts-ignore
+import CloverLogo from "../logos/clover.png";
 
 export const FALLBACK: IProviderInfo = {
   id: "injected",
@@ -35,6 +37,14 @@ export const FALLBACK: IProviderInfo = {
   logo: Web3DefaultLogo,
   type: "injected",
   check: "isWeb3"
+};
+
+export const CLOVER: IProviderInfo = {
+  id: "injected",
+  name: "Clover",
+  logo: CloverLogo,
+  type: "injected",
+  check: "isClover"
 };
 
 export const METAMASK: IProviderInfo = {
