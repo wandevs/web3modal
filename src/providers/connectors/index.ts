@@ -13,6 +13,7 @@ import frame from "./frame";
 import wanmask from './wanmask';
 import wanwallet from "./wanwallet";
 import ezdefi from './ezdefi';
+import clover from './clover';
 
 
 export {
@@ -30,5 +31,6 @@ export {
   frame,
   wanmask,
   wanwallet,
-  ezdefi
+  ezdefi,
+  clover
 };

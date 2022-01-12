@@ -249,6 +249,12 @@ class App extends React.Component<any, any> {
           config:{}
         }
       },
+      clover:{
+        package: {},
+        opts: {
+          config:{}
+        }
+      },
       wanwallet:{
         package: new WanWalletConnector({
             chainId: 1,

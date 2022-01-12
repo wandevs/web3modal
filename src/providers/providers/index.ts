@@ -26,6 +26,8 @@ import WanMaskLogo from "../logos/wanmask.png";
 import WanWalletLogo from "../logos/wanwallet.png";
 // @ts-ignore
 import EzDefiLogo from "../logos/ezdefi.png";
+// @ts-ignore
+import CloverLogo from "../logos/clover.png";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -162,4 +164,12 @@ export const EZDEFI: IProviderInfo = {
   logo: EzDefiLogo,
   type: "web",
   check: "isEzDefi"
+};
+
+export const CLOVER: IProviderInfo = {
+  id: "clover",
+  name: "Clover",
+  logo: CloverLogo,
+  type: "web",
+  check: "isClover"
 };
