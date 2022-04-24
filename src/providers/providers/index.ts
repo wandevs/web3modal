@@ -28,6 +28,8 @@ import WanWalletLogo from "../logos/wanwallet.png";
 import EzDefiLogo from "../logos/ezdefi.png";
 // @ts-ignore
 import CloverLogo from "../logos/clover.png";
+// @ts-ignore
+import XDCLogo from "../logos/XDC.png";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -172,4 +174,12 @@ export const CLOVER: IProviderInfo = {
   logo: CloverLogo,
   type: "web",
   check: "isClover"
+};
+
+export const XDC: IProviderInfo = {
+  id: "xdc",
+  name: "XDCWallet",
+  logo: XDCLogo,
+  type: "web",
+  check: "xdc"
 };

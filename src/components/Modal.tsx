@@ -21,6 +21,7 @@ declare global {
     wan3?: any;
     injectWeb3?: any;
     clover?: any;
+    xdc?: any;
   }
 }
 

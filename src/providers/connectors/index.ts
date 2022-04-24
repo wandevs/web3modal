@@ -14,6 +14,7 @@ import wanmask from './wanmask';
 import wanwallet from "./wanwallet";
 import ezdefi from './ezdefi';
 import clover from './clover';
+import xdc from './xdc';
 
 
 export {
@@ -32,5 +33,6 @@ export {
   wanmask,
   wanwallet,
   ezdefi,
-  clover
+  clover,
+  xdc
 };
