@@ -38,6 +38,7 @@ export class Core {
   private userOptions: IProviderUserOptions[];
 
   constructor(opts?: Partial<ICoreOptions>) {
+    console.log('!!!!!!!!!!!')
     const options: ICoreOptions = {
       ...defaultOpts,
       ...opts

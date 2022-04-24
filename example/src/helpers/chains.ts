@@ -192,7 +192,24 @@ const supportedChains: IChainData[] = [
       contractAddress: "",
       balance: ""
     }
-  }
+  },
+  {
+    name: "XDC Chain",
+    short_name: "xdc",
+    chain: "smartchain",
+    network: "mainnet",
+    chain_id: 50,
+    network_id: 50,
+    rpc_url: "https://rpc.xinfin.network",
+    native_currency: {
+      symbol: "XDC",
+      name: "XDC",
+      decimals: "18",
+      contractAddress: "",
+      balance: ""
+    }
+  },
+  
 ];
 
 export default supportedChains;
