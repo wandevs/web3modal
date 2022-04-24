@@ -3,7 +3,7 @@ const ConnectToXDC = async () => {
   if (typeof window.xdc !== 'undefined') {
     provider = window.xdc;
     try {
-      await provider.request({ method: 'eth_requestAccounts' })
+      await provider.enable();
     } catch (error) {
       throw new Error("User Rejected");
     }

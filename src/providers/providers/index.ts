@@ -178,8 +178,8 @@ export const CLOVER: IProviderInfo = {
 
 export const XDC: IProviderInfo = {
   id: "xdc",
-  name: "XDCWallet",
+  name: "XDCPay",
   logo: XDCLogo,
   type: "web",
-  check: "xdc"
+  check: "isMetaMask"
 };
