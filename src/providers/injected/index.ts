@@ -30,6 +30,8 @@ import FrameLogo from "../logos/frame.svg";
 import LiqualityLogo from "../logos/liquality.png";
 // @ts-ignore
 // import CloverLogo from "../logos/clover.png";
+// @ts-ignore
+import XDCLogo from "../logos/XDC.png";
 
 export const FALLBACK: IProviderInfo = {
   id: "injected",

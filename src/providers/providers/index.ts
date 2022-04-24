@@ -181,5 +181,5 @@ export const XDC: IProviderInfo = {
   name: "XDCPay",
   logo: XDCLogo,
   type: "web",
-  check: "isMetaMask"
+  check: "xdc"
 };
