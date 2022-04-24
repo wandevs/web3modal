@@ -1,5 +1,6 @@
 const ConnectToXDC = async () => {
   let provider = null;
+  provider = window.xdc;
   if (typeof window.xdc !== 'undefined') {
     provider = window.xdc;
     try {
