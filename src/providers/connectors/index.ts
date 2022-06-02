@@ -15,6 +15,7 @@ import wanwallet from "./wanwallet";
 import ezdefi from './ezdefi';
 import clover from './clover';
 import xdc from './xdc';
+import metax from './metax';
 
 
 export {
@@ -34,5 +35,6 @@ export {
   wanwallet,
   ezdefi,
   clover,
-  xdc
+  xdc,
+  metax
 };

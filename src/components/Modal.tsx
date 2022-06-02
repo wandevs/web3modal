@@ -22,6 +22,7 @@ declare global {
     injectWeb3?: any;
     clover?: any;
     xdc?: any;
+    okexchain?: any;
   }
 }
 

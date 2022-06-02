@@ -30,6 +30,8 @@ import EzDefiLogo from "../logos/ezdefi.png";
 import CloverLogo from "../logos/clover.png";
 // @ts-ignore
 import XDCLogo from "../logos/XDC.png";
+// @ts-ignore
+import METAXLogo from "../logos/METAX.png";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -183,3 +185,12 @@ export const XDC: IProviderInfo = {
   type: "web",
   check: "xdc"
 };
+
+export const METAX: IProviderInfo = {
+  id: "metax",
+  name: "MetaX",
+  logo: METAXLogo,
+  type: "web",
+  check: "metax"
+};
+

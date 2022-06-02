@@ -261,6 +261,12 @@ class App extends React.Component<any, any> {
           config:{}
         }
       },
+      metax:{
+        package: {},
+        opts: {
+          config:{}
+        }
+      },
       wanwallet:{
         package: new WanWalletConnector({
             chainId: 1,

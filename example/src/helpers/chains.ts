@@ -209,7 +209,38 @@ const supportedChains: IChainData[] = [
       balance: ""
     }
   },
-  
+  {
+    name: "OKEX Chain",
+    short_name: "okx",
+    chain: "smartchain",
+    network: "mainnet",
+    chain_id: 66,
+    network_id: 66,
+    rpc_url: "https://exchainrpc.okex.org",
+    native_currency: {
+      symbol: "OKX",
+      name: "OKX",
+      decimals: "18",
+      contractAddress: "",
+      balance: ""
+    }
+  },
+  {
+    name: "OKEX Chain",
+    short_name: "okx",
+    chain: "smartchain",
+    network: "testnet",
+    chain_id: 65,
+    network_id: 65,
+    rpc_url: "https://exchainrpc.okex.org",
+    native_currency: {
+      symbol: "OKX",
+      name: "OKX",
+      decimals: "18",
+      contractAddress: "",
+      balance: ""
+    }
+  },
 ];
 
 export default supportedChains;
