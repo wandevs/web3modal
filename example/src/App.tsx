@@ -174,7 +174,7 @@ class App extends React.Component<any, any> {
     console.log('new web3modal');
     this.web3Modal = new Web3Modal({
       network: this.getNetwork(),
-      cacheProvider: false,
+      cacheProvider: true,
       providerOptions: this.getProviderOptions()
     });
   }
