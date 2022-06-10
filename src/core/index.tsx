@@ -150,6 +150,10 @@ export class Core {
     await this.updateState({ themeColors: this.themeColors });
   }
 
+  public getLogo = (): any => {
+    return this.providerController.getProvider(this.providerController.cachedProvider)?.logo;
+  }
+
   // --------------- PRIVATE METHODS --------------- //
 
   private renderModal() {

@@ -10,6 +10,7 @@ const ConnectToWanMask = async () => {
   } else if (window.wan3) {
     provider = window.wan3.currentProvider;
   } else {
+    window.open('https://github.com/wanchain/wanmask/releases');
     throw new Error("No WanMask Provider found");
   }
   return provider;

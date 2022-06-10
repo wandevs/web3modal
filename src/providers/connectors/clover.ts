@@ -8,6 +8,7 @@ const ConnectToClover = async () => {
       throw new Error("User Rejected");
     }
   } else {
+    window.open('https://chrome.google.com/webstore/search/Clover');
     throw new Error("No Clover Provider found");
   }
   return provider;

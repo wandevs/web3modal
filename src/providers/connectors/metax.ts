@@ -10,6 +10,7 @@ const ConnectToMETAX = async () => {
       throw new Error("User Rejected");
     }
   } else {
+    window.open('https://chrome.google.com/webstore/search/MetaX');
     throw new Error("No METAX Provider found");
   }
   return provider;

@@ -556,6 +556,16 @@ class App extends React.Component<any, any> {
                 <h3>Actions</h3>
                 <Column center>
                   <STestButtonContainer>
+                    <STestButton left onClick={()=>{
+                      let options = this.web3Modal.getUserOptions();
+                      console.log('options', options);
+                      let id = this.web3Modal.cachedProvider;
+                      console.log('id', id);
+                      console.log('logo', this.web3Modal.getLogo());
+                    }}>
+                      Test
+                    </STestButton>
+
                     <STestButton left onClick={this.testSendTransaction}>
                       {ETH_SEND_TRANSACTION}
                     </STestButton>

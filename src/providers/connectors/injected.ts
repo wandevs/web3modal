@@ -12,6 +12,7 @@ const ConnectToInjected = async () => {
   } else if (window.celo) {
     provider = window.celo;
   } else {
+    window.open('https://metamask.io');
     throw new Error("No Web3 Provider found");
   }
   return provider;
