@@ -5,7 +5,7 @@ import PortisLogo from "../logos/portis.svg";
 // @ts-ignore
 import FortmaticLogo from "../logos/fortmatic.svg";
 // @ts-ignore
-import ArkaneLogo from "../logos/arkane.svg";
+import VenlyLogo from "../logos/venly.svg";
 // @ts-ignore
 import TorusLogo from "../logos/torus.svg";
 // @ts-ignore
@@ -32,6 +32,14 @@ import CloverLogo from "../logos/clover.png";
 import XDCLogo from "../logos/XDC.png";
 // @ts-ignore
 import METAXLogo from "../logos/METAX.png";
+// @ts-ignore
+import BinanceChainWalletLogo from "../logos/binancechainwallet.svg";
+// @ts-ignore
+import CoinbaseWalletLogo from "../logos/coinbasewallet.svg";
+// @ts-ignore
+import WalletLinkLogo from "../logos/walletlink.svg";
+// @ts-ignore
+import SequenceLogo from "../logos/sequence.svg";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -78,12 +86,12 @@ export const TORUS: IProviderInfo = {
   check: "isTorus"
 };
 
-export const ARKANE: IProviderInfo = {
-  id: "arkane",
-  name: "Arkane",
-  logo: ArkaneLogo,
+export const VENLY: IProviderInfo = {
+  id: "venly",
+  name: "Venly",
+  logo: VenlyLogo,
   type: "web",
-  check: "isArkane",
+  check: "isVenly",
   package: {
     required: ["clientId"]
   }
@@ -194,3 +202,43 @@ export const METAX: IProviderInfo = {
   check: "metax"
 };
 
+export const BINANCECHAINWALLET: IProviderInfo = {
+  id: "binancechainwallet",
+  name: "Binance Chain",
+  logo: BinanceChainWalletLogo,
+  type: "injected",
+  check: "isBinanceChainWallet"
+};
+
+/**
+ * @deprecated Use CoinbaseWalletSdk
+ */
+export const WALLETLINK: IProviderInfo = {
+  id: "walletlink",
+  name: "Coinbase Wallet",
+  logo: CoinbaseWalletLogo,
+  type: "qrcode",
+  check: "isWalletLink",
+  package: {
+    required: [["appName", "infuraId", "rpc"]]
+  }
+};
+
+export const COINBASEWALLET: IProviderInfo = {
+  id: "coinbasewallet",
+  name: "Coinbase",
+  logo: CoinbaseWalletLogo,
+  type: "injected",
+  check: "isWalletLink",
+  package: {
+    required: [["appName", "infuraId", "rpc"]]
+  }
+};
+
+export const SEQUENCE: IProviderInfo = {
+  id: "sequence",
+  name: "Sequence",
+  logo: SequenceLogo,
+  type: "web",
+  check: "isSequenceWeb"
+};

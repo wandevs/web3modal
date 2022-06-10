@@ -210,6 +210,22 @@ const supportedChains: IChainData[] = [
     }
   },
   {
+    name: "Celo Mainnet",
+    short_name: "celo",
+    chain: "celo",
+    network: "mainnet",
+    chain_id: 42220,
+    network_id: 42220,
+    rpc_url: "https://forno.celo.org",
+    native_currency: {
+      symbol: "CELO",
+      name: "CELO",
+      decimals: "18",
+      contractAddress: "",
+      balance: ""
+    }
+  },
+  {
     name: "OKEX Chain",
     short_name: "okx",
     chain: "smartchain",
@@ -241,6 +257,22 @@ const supportedChains: IChainData[] = [
       balance: ""
     }
   },
+  {
+    name: "Celo Baklava Testnet",
+    short_name: "celo",
+    chain: "celo",
+    network: "baklava",
+    chain_id: 62320,
+    network_id: 62320,
+    rpc_url: "https://baklava-forno.celo-testnet.org",
+    native_currency: {
+      symbol: "CELO",
+      name: "CELO",
+      decimals: "18",
+      contractAddress: "",
+      balance: ""
+    }
+  }
 ];
 
 export default supportedChains;

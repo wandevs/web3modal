@@ -1,9 +1,10 @@
 import injected from "./injected";
+import boltx from "./boltx";
 import walletconnect from "./walletconnect";
 import portis from "./portis";
 import fortmatic from "./fortmatic";
 import torus from "./torus";
-import arkane from "./arkane";
+import venly from "./venly";
 import authereum from "./authereum";
 import burnerconnect from "./burnerconnect";
 import mewconnect from "./mewconnect";
@@ -16,15 +17,18 @@ import ezdefi from './ezdefi';
 import clover from './clover';
 import xdc from './xdc';
 import metax from './metax';
-
+import binancechainwallet from "./binancechainwallet";
+import coinbasewallet, { walletlink } from "./coinbasewallet";
+import sequence from "./sequence";
 
 export {
   injected,
   walletconnect,
+  boltx,
   portis,
   torus,
   fortmatic,
-  arkane,
+  venly,
   authereum,
   burnerconnect,
   mewconnect,
@@ -36,5 +40,9 @@ export {
   ezdefi,
   clover,
   xdc,
-  metax
+  metax,
+  binancechainwallet,
+  coinbasewallet,
+  walletlink,
+  sequence
 };
