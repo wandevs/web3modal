@@ -3,16 +3,15 @@ import styled from "styled-components";
 import Web3 from "web3";
 import { convertUtf8ToHex } from "@walletconnect/utils";
 import { WanWalletConnector } from '@web3-react-wan/wanwallet-connector'
-// import Web3Modal from "../../";
+import Web3Modal from "../../";
 // @ts-ignore
 // import WalletConnectProvider from "@walletconnect/web3-provider";
 // @ts-ignore
 // import Fortmatic from "fortmatic";
-import Torus from "@toruslabs/torus-embed";
 // import Authereum from "authereum";
 // import { Bitski } from "bitski";
 // @ts-ignore
-import Web3Modal from "web3modal";
+// import Web3Modal from "@wandevs/web3modal";
 // @ts-ignore
 import WalletConnect from "@walletconnect/web3-provider";
 // @ts-ignore

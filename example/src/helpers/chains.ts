@@ -258,6 +258,22 @@ const supportedChains: IChainData[] = [
     }
   },
   {
+    name: "Wanchain Mainnet",
+    short_name: "wan",
+    chain: "wanchain",
+    network: "mainnet",
+    chain_id: 888,
+    network_id: 888,
+    rpc_url: "https://gwan-ssl.wandevs.org:56891",
+    native_currency: {
+      symbol: "WAN",
+      name: "WAN",
+      decimals: "18",
+      contractAddress: "",
+      balance: ""
+    }
+  },
+  {
     name: "Celo Baklava Testnet",
     short_name: "celo",
     chain: "celo",
