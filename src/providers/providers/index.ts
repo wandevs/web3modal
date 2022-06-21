@@ -196,7 +196,7 @@ export const XDC: IProviderInfo = {
 
 export const METAX: IProviderInfo = {
   id: "metax",
-  name: "MetaX",
+  name: "OKX Wallet",
   logo: METAXLogo,
   type: "web",
   check: "metax"
