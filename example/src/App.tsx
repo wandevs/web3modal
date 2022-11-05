@@ -29,6 +29,8 @@ import ModalResult from "./components/ModalResult";
 import AccountAssets from "./components/AccountAssets";
 import ConnectButton from "./components/ConnectButton";
 
+
+
 import { apiGetAccountAssets } from "./helpers/api";
 import {
   hashPersonalMessage,
@@ -47,6 +49,9 @@ import {
   DAI_TRANSFER
 } from "./constants";
 import { callBalanceOf, callTransfer } from "./helpers/web3";
+
+import { Magic } from "magic-sdk";
+import { ConnectExtension } from "@magic-ext/connect";
 
 const SLayout = styled.div`
   position: relative;
@@ -272,6 +277,14 @@ class App extends React.Component<any, any> {
         package: {},
         opts: {
           config:{}
+        }
+      },
+      magic:{
+        package: Magic,
+        options: {
+          network: 'mainnet',
+          magicApiKey: '',
+          connectExtension: new ConnectExtension(),
         }
       },
       walletconnect: {

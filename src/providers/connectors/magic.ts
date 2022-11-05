@@ -1,11 +1,25 @@
-import { Magic } from "magic-sdk";
-import { ConnectExtension } from "@magic-ext/connect";
-const ConnectToMagicWallet = async () => {
+import { IAbstractConnectorOptions } from "../../helpers";
+
+// import { Magic } from "magic-sdk";
+// import { ConnectExtension } from "@magic-ext/connect";
+
+
+export interface IMagicOptions
+  extends IAbstractConnectorOptions {
+  magicApiKey: string;
+  connectExtension: any;
+  locale?: string;
+}
+
+const ConnectToMagicWallet = async (
+  Magic: any,
+  opts: IMagicOptions
+) => {
   console.log('ConnectToMagic...');
-  const magic = new Magic("pk_live_EBE987B2422760F0", {
-    network: "ethereum",
-    locale: "en_US",
-    extensions: [new ConnectExtension()]
+  const magic = new Magic(opts.magicApiKey, {
+    network: opts.network,
+    locale: opts.locale ? opts.locale : "en_US",
+    extensions: [opts.connectExtension],
   } as any);
   return magic.rpcProvider as any;
 };

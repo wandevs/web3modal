@@ -20,6 +20,7 @@ import metax from './metax';
 import binancechainwallet from "./binancechainwallet";
 import coinbasewallet, { walletlink } from "./coinbasewallet";
 import sequence from "./sequence";
+import magic from './magic';
 
 export {
   injected,
@@ -44,5 +45,6 @@ export {
   binancechainwallet,
   coinbasewallet,
   walletlink,
-  sequence
+  sequence,
+  magic,
 };
