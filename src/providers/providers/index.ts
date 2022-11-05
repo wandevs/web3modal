@@ -40,6 +40,8 @@ import CoinbaseWalletLogo from "../logos/coinbasewallet.svg";
 import WalletLinkLogo from "../logos/walletlink.svg";
 // @ts-ignore
 import SequenceLogo from "../logos/sequence.svg";
+// @ts-ignore
+import MagicLogo from "../logos/magic.svg";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -241,4 +243,12 @@ export const SEQUENCE: IProviderInfo = {
   logo: SequenceLogo,
   type: "web",
   check: "isSequenceWeb"
+};
+
+export const MAGIC: IProviderInfo = {
+  id: "magic",
+  name: "Magic",
+  logo: MagicLogo,
+  type: "web",
+  check: "magic"
 };
