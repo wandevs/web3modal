@@ -20,7 +20,7 @@
     "coinbasewallet",
     "sequence"
   ],
-  "author": "Web3Modal <web3modal.com>",
+  "author": "wandevs <support@wanchain.org>",
   "license": "MIT",
   "main": "dist/index.js",
   "unpkg": "dist/index.js",
@@ -33,13 +33,13 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/web3modal/web3modal",
+  "homepage": "https://github.com/wandevs/web3modal",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/web3modal/web3modal.git"
+    "url": "git+https://github.com/wandevs/web3modal.git"
   },
   "bugs": {
-    "url": "https://github.com/web3modal/web3modal/issues"
+    "url": "https://github.com/wandevs/web3modal/issues"
   },
   "scripts": {
     "prepare": "npm run clean && npm run build",
