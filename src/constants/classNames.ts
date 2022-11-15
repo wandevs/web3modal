@@ -1,5 +1,7 @@
 export const MODAL_LIGHTBOX_CLASSNAME = "web3modal-modal-lightbox";
 export const MODAL_CONTAINER_CLASSNAME = "web3modal-modal-container";
+export const MODAL_TITLE_CLASSNAME = "web3modal-modal-title";
+export const MODAL_TITLE_CLOSE_CLASSNAME = "web3modal-modal-title-close-icon"
 export const MODAL_HITBOX_CLASSNAME = "web3modal-modal-hitbox";
 export const MODAL_CARD_CLASSNAME = "web3modal-modal-card";
 

@@ -27,7 +27,8 @@ const defaultOpts: ICoreOptions = {
   cacheProvider: false,
   disableInjectedProvider: false,
   providerOptions: {},
-  network: ""
+  network: "",
+  title: undefined
 };
 
 export class Core {
@@ -35,6 +36,7 @@ export class Core {
   private themeColors: ThemeColors;
   private eventController: EventController = new EventController();
   private lightboxOpacity: number;
+  private title?: string | undefined;
   private providerController: ProviderController;
   private userOptions: IProviderUserOptions[];
 
@@ -46,13 +48,15 @@ export class Core {
     };
 
     this.lightboxOpacity = options.lightboxOpacity;
+    this.title = options.title;
     this.themeColors = getThemeColors(options.theme);
 
     this.providerController = new ProviderController({
       disableInjectedProvider: options.disableInjectedProvider,
       cacheProvider: options.cacheProvider,
       providerOptions: options.providerOptions,
-      network: options.network
+      network: options.network,
+      title: options.title
     });
 
     this.providerController.on(CONNECT_EVENT, provider =>
@@ -168,6 +172,7 @@ export class Core {
         onClose={this.onClose}
         resetState={this.resetState}
         lightboxOpacity={this.lightboxOpacity}
+        title={this.title}
       />,
       document.getElementById(WEB3_CONNECT_MODAL_ID)
     );

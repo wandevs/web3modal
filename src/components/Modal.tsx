@@ -7,9 +7,12 @@ import {
   MODAL_LIGHTBOX_CLASSNAME,
   MODAL_CONTAINER_CLASSNAME,
   MODAL_HITBOX_CLASSNAME,
-  MODAL_CARD_CLASSNAME
+  MODAL_CARD_CLASSNAME,
+  MODAL_TITLE_CLASSNAME,
+  MODAL_TITLE_CLOSE_CLASSNAME
 } from "../constants";
 import { SimpleFunction, IProviderUserOptions, ThemeColors } from "../helpers";
+const closeSVG = require('./../assets/close.svg');
 
 declare global {
   // tslint:disable-next-line
@@ -118,6 +121,24 @@ const SModalCard = styled.div<IModalCardStyleProps>`
     grid-template-columns: 1fr;
   }
 `;
+interface IModalTitleStyleProps {
+  fontSize?: string;
+}
+
+const SModalTitle = styled.div<IModalTitleStyleProps>`
+  font-size: ${ ({ fontSize }) => (fontSize ? fontSize : '20px')};
+`;
+
+const SModalTitleLine = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Close = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+`;
 
 interface IModalProps {
   themeColors: ThemeColors;
@@ -125,6 +146,7 @@ interface IModalProps {
   onClose: SimpleFunction;
   resetState: SimpleFunction;
   lightboxOpacity: number;
+  title?: string | undefined;
 }
 
 interface IModalState {
@@ -178,7 +200,7 @@ export class Modal extends React.Component<IModalProps, IModalState> {
   public render = () => {
     const { show, lightboxOffset } = this.state;
 
-    const { onClose, lightboxOpacity, userOptions, themeColors } = this.props;
+    const { onClose, lightboxOpacity, userOptions, themeColors, title } = this.props;
 
     return (
       <SLightbox
@@ -197,6 +219,12 @@ export class Modal extends React.Component<IModalProps, IModalState> {
             maxWidth={userOptions.length < 3 ? 500 : 800}
             ref={c => (this.mainModalCard = c)}
           >
+            { title ? (
+               <SModalTitleLine>
+                  <SModalTitle className={MODAL_TITLE_CLASSNAME}>{ title }</SModalTitle>
+                  <Close className={MODAL_TITLE_CLOSE_CLASSNAME} src={closeSVG}></Close>
+               </SModalTitleLine>
+            ) : null}
             {userOptions.map(provider =>
               !!provider ? (
                 <Provider
