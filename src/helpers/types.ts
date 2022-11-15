@@ -1,7 +1,6 @@
 export interface ICoreOptions extends IProviderControllerOptions {
   lightboxOpacity: number;
   theme: string | ThemeColors;
-  title?: string | undefined;
 }
 
 export interface IProviderControllerOptions {
@@ -9,7 +8,7 @@ export interface IProviderControllerOptions {
   cacheProvider: boolean;
   providerOptions: IProviderOptions;
   network: string;
-  title?: string | undefined;
+  title?: string;
 }
 
 export interface IAbstractConnectorOptions {
