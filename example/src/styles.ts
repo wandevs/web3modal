@@ -223,11 +223,17 @@ export const globalStyle = `
   .web3modal-modal-card {
     width: 448px;
     max-width: 448px;
-    max-height: 528px;
+    background: #042033;
+    padding: 28px 24px 12px;
+    border-radius: 12px;
+  }
+
+  .web3modal-modal-card-con {
+    width: 400px;
+    max-width: 400px;
+    max-height: 450px;
     overflow-y: auto;
     background: #042033;
-    border-radius: 12px;
-    padding: 28px 24px 12px;
   }
 
   .web3modal-provider-wrapper {

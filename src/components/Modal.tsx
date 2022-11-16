@@ -8,6 +8,7 @@ import {
   MODAL_CONTAINER_CLASSNAME,
   MODAL_HITBOX_CLASSNAME,
   MODAL_CARD_CLASSNAME,
+  MODAL_CARD_CON_CLASSNAME,
   MODAL_TITLE_CLASSNAME,
   MODAL_TITLE_CLOSE_CLASSNAME
 } from "../constants";
@@ -101,6 +102,8 @@ interface IModalCardStyleProps {
 const SModalCard = styled.div<IModalCardStyleProps>`
   position: relative;
   width: 100%;
+  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "800px")};
+  min-width: fit-content;
   background-color: ${({ themeColors }) => themeColors.background};
   border-radius: 12px;
   margin: 10px;
@@ -109,18 +112,29 @@ const SModalCard = styled.div<IModalCardStyleProps>`
   visibility: ${({ show }) => (show ? "visible" : "hidden")};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
 
+  @media screen and (max-width: 768px) {
+    max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "500px")};
+  }
+`;
+
+interface IModalCardConStyleProps {
+  maxWidth?: number;
+}
+
+const SModalCardCon = styled.div<IModalCardConStyleProps>`
+  width: 100%;
   display: grid;
+  padding: 0;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "800px")};
   min-width: fit-content;
   max-height: 100%;
   overflow: auto;
 
   @media screen and (max-width: 768px) {
-    max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "500px")};
     grid-template-columns: 1fr;
   }
 `;
+
 interface IModalTitleStyleProps {
   fontSize?: string;
 }
@@ -222,20 +236,25 @@ export class Modal extends React.Component<IModalProps, IModalState> {
             { title ? (
                <SModalTitleLine>
                   <SModalTitle className={MODAL_TITLE_CLASSNAME}>{ title }</SModalTitle>
-                  <Close className={MODAL_TITLE_CLOSE_CLASSNAME} src={closeSVG}></Close>
+                  <Close className={MODAL_TITLE_CLOSE_CLASSNAME} src={closeSVG} onClick={onClose}></Close>
                </SModalTitleLine>
             ) : null}
-            {userOptions.map(provider =>
-              !!provider ? (
-                <Provider
-                  name={provider.name}
-                  logo={provider.logo}
-                  description={provider.description}
-                  themeColors={themeColors}
-                  onClick={provider.onClick}
-                />
-              ) : null
-            )}
+            <SModalCardCon
+              className={MODAL_CARD_CON_CLASSNAME}
+              maxWidth={userOptions.length < 3 ? 500 : 800}
+            >
+              {userOptions.map(provider =>
+                !!provider ? (
+                  <Provider
+                    name={provider.name}
+                    logo={provider.logo}
+                    description={provider.description}
+                    themeColors={themeColors}
+                    onClick={provider.onClick}
+                  />
+                ) : null
+              )}
+            </SModalCardCon>
           </SModalCard>
         </SModalContainer>
       </SLightbox>

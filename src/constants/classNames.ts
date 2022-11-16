@@ -4,6 +4,7 @@ export const MODAL_TITLE_CLASSNAME = "web3modal-modal-title";
 export const MODAL_TITLE_CLOSE_CLASSNAME = "web3modal-modal-title-close-icon"
 export const MODAL_HITBOX_CLASSNAME = "web3modal-modal-hitbox";
 export const MODAL_CARD_CLASSNAME = "web3modal-modal-card";
+export const MODAL_CARD_CON_CLASSNAME = "web3modal-modal-card-con";
 
 export const PROVIDER_WRAPPER_CLASSNAME = "web3modal-provider-wrapper";
 export const PROVIDER_CONTAINER_CLASSNAME = "web3modal-provider-container";
