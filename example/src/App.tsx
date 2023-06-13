@@ -4,6 +4,7 @@ import Web3 from "web3";
 import { convertUtf8ToHex } from "@walletconnect/utils";
 import { WanWalletConnector } from '@web3-react-wan/wanwallet-connector'
 import Web3Modal from "../../";
+import { EthereumProvider } from '@walletconnect/ethereum-provider'
 // @ts-ignore
 // import WalletConnectProvider from "@walletconnect/web3-provider";
 // @ts-ignore
@@ -289,9 +290,12 @@ class App extends React.Component<any, any> {
         }
       },
       walletconnect: {
-        package: WalletConnect,
+        package: EthereumProvider,
         options: {
-          infuraId
+          projectId: '20759d10d280845d112536497b73c294', // REQUIRED your projectId
+          chains:[1], // REQUIRED chain ids
+          showQrModal: true, // REQUIRED set to "true" to use @walletconnect/modal
+          optionalChains: [888], // OPTIONAL optional chain ids
         }
       },
       torus: {
