@@ -1,5 +1,5 @@
 const ConnectToMETAX = async () => {
-  console.log('ConnectToMETAX...');
+  console.log('ConnectToOKX...');
   let provider = null;
   provider = window.okexchain;
   if (typeof window.okexchain !== 'undefined') {
@@ -10,8 +10,8 @@ const ConnectToMETAX = async () => {
       throw new Error("User Rejected");
     }
   } else {
-    window.open('https://chrome.google.com/webstore/search/MetaX');
-    throw new Error("No METAX Provider found");
+    window.open('https://chrome.google.com/webstore/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge');
+    throw new Error("No OKX Provider found");
   }
   return provider;
 };
