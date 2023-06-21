@@ -7,9 +7,13 @@ import {
   MODAL_LIGHTBOX_CLASSNAME,
   MODAL_CONTAINER_CLASSNAME,
   MODAL_HITBOX_CLASSNAME,
-  MODAL_CARD_CLASSNAME
+  MODAL_CARD_CLASSNAME,
+  MODAL_CARD_CON_CLASSNAME,
+  MODAL_TITLE_CLASSNAME,
+  MODAL_TITLE_CLOSE_CLASSNAME
 } from "../constants";
 import { SimpleFunction, IProviderUserOptions, ThemeColors } from "../helpers";
+const closeSVG = require('./../assets/close.svg');
 
 declare global {
   // tslint:disable-next-line
@@ -98,6 +102,8 @@ interface IModalCardStyleProps {
 const SModalCard = styled.div<IModalCardStyleProps>`
   position: relative;
   width: 100%;
+  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "800px")};
+  min-width: fit-content;
   background-color: ${({ themeColors }) => themeColors.background};
   border-radius: 12px;
   margin: 10px;
@@ -106,17 +112,46 @@ const SModalCard = styled.div<IModalCardStyleProps>`
   visibility: ${({ show }) => (show ? "visible" : "hidden")};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
 
+  @media screen and (max-width: 768px) {
+    max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "500px")};
+  }
+`;
+
+interface IModalCardConStyleProps {
+  maxWidth?: number;
+}
+
+const SModalCardCon = styled.div<IModalCardConStyleProps>`
+  width: 100%;
   display: grid;
+  padding: 0;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "800px")};
   min-width: fit-content;
   max-height: 100%;
   overflow: auto;
 
   @media screen and (max-width: 768px) {
-    max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "500px")};
     grid-template-columns: 1fr;
   }
+`;
+
+interface IModalTitleStyleProps {
+  fontSize?: string;
+}
+
+const SModalTitle = styled.div<IModalTitleStyleProps>`
+  font-size: ${ ({ fontSize }) => (fontSize ? fontSize : '20px')};
+`;
+
+const SModalTitleLine = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Close = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 `;
 
 interface IModalProps {
@@ -125,6 +160,7 @@ interface IModalProps {
   onClose: SimpleFunction;
   resetState: SimpleFunction;
   lightboxOpacity: number;
+  title?: string | undefined;
 }
 
 interface IModalState {
@@ -178,7 +214,7 @@ export class Modal extends React.Component<IModalProps, IModalState> {
   public render = () => {
     const { show, lightboxOffset } = this.state;
 
-    const { onClose, lightboxOpacity, userOptions, themeColors } = this.props;
+    const { onClose, lightboxOpacity, userOptions, themeColors, title } = this.props;
 
     return (
       <SLightbox
@@ -197,17 +233,28 @@ export class Modal extends React.Component<IModalProps, IModalState> {
             maxWidth={userOptions.length < 3 ? 500 : 800}
             ref={c => (this.mainModalCard = c)}
           >
-            {userOptions.map(provider =>
-              !!provider ? (
-                <Provider
-                  name={provider.name}
-                  logo={provider.logo}
-                  description={provider.description}
-                  themeColors={themeColors}
-                  onClick={provider.onClick}
-                />
-              ) : null
-            )}
+            { title ? (
+               <SModalTitleLine>
+                  <SModalTitle className={MODAL_TITLE_CLASSNAME}>{ title }</SModalTitle>
+                  <Close className={MODAL_TITLE_CLOSE_CLASSNAME} src={closeSVG} onClick={onClose}></Close>
+               </SModalTitleLine>
+            ) : null}
+            <SModalCardCon
+              className={MODAL_CARD_CON_CLASSNAME}
+              maxWidth={userOptions.length < 3 ? 500 : 800}
+            >
+              {userOptions.map(provider =>
+                !!provider ? (
+                  <Provider
+                    name={provider.name}
+                    logo={provider.logo}
+                    description={provider.description}
+                    themeColors={themeColors}
+                    onClick={provider.onClick}
+                  />
+                ) : null
+              )}
+            </SModalCardCon>
           </SModalCard>
         </SModalContainer>
       </SLightbox>

@@ -219,4 +219,95 @@ export const globalStyle = `
   textarea {
     font-size: 16px;
   }
+
+  .web3modal-modal-card {
+    width: 448px;
+    max-width: 448px;
+    background: #042033;
+    padding: 28px 24px 12px;
+    border-radius: 12px;
+  }
+
+  .web3modal-modal-card-con {
+    width: 400px;
+    max-width: 400px;
+    max-height: 450px;
+    overflow-y: auto;
+    background: #042033;
+  }
+
+  .web3modal-provider-wrapper {
+    padding: 0;
+    margin-bottom: 16px;
+    border: none;
+    background: #05273F;
+    border-radius: 12px;
+  }
+
+  .web3modal-provider-container {
+    background: #05273F;
+    height: 60px;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-areas: "icon name"
+                         "icon description";
+  }
+
+  .web3modal-provider-container:hover{
+    background: linear-gradient(90deg, #2FBDF4 0%, #0F68AA 100%);
+  }
+
+  .web3modal-provider-icon {
+    grid-area: icon;
+    margin-right: 12px;
+  }
+
+  .web3modal-provider-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .web3modal-provider-name {
+    font-size: 18px;
+    font-family: Inter-Medium, Inter;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    height: 22px;
+    line-height: 22px;
+    grid-area: name;
+    text-align: left;
+  }
+
+  .web3modal-provider-description {
+    height: 14px;
+    line-height: 14px;
+    font-size: 12px;
+    font-family: Inter-Medium, Inter;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+    padding: 0;
+    grid-area: description;
+    text-align: left;
+  }
+
+  .web3modal-modal-title {
+    font-size: 20px;
+    font-family: Inter-Medium, Inter;
+    font-weight: 500;
+    line-height: 23px;
+    background: linear-gradient(90deg, #2FBDF4 0%, #0F68AA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+  }
+
+  // .web3modal-modal-title-close-icon {
+  //   position: relative;
+  //   left: -80px;
+  //   filter: drop-shadow(red 80px 0);
+  // }
 `;

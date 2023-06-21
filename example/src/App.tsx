@@ -180,7 +180,8 @@ class App extends React.Component<any, any> {
     this.web3Modal = new Web3Modal({
       network: this.getNetwork(),
       cacheProvider: true,
-      providerOptions: this.getProviderOptions()
+      providerOptions: this.getProviderOptions(),
+      title: 'Connect Wallet'
     });
   }
 
