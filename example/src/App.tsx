@@ -268,6 +268,12 @@ class App extends React.Component<any, any> {
           config:{}
         }
       },
+      tron: {
+        package: {},
+        opts: {
+          config: {}
+        }
+      },
       xdc:{
         package: {},
         opts: {

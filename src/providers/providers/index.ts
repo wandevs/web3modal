@@ -42,6 +42,8 @@ import WalletLinkLogo from "../logos/walletlink.svg";
 import SequenceLogo from "../logos/sequence.svg";
 // @ts-ignore
 import MagicLogo from "../logos/magic.svg";
+// @ts-ignore
+import TronLogo from "../logos/magic.svg";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -251,4 +253,12 @@ export const MAGIC: IProviderInfo = {
   logo: MagicLogo,
   type: "web",
   check: "magic"
+};
+
+export const TRON: IProviderInfo = {
+  id: "tron",
+  name: "Tron",
+  logo: TronLogo,
+  type: "web",
+  check: "tron"
 };

@@ -21,6 +21,7 @@ import binancechainwallet from "./binancechainwallet";
 import coinbasewallet, { walletlink } from "./coinbasewallet";
 import sequence from "./sequence";
 import magic from './magic';
+import tron from './tron';
 
 export {
   injected,
@@ -47,4 +48,5 @@ export {
   walletlink,
   sequence,
   magic,
+  tron,
 };

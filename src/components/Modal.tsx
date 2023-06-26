@@ -29,6 +29,7 @@ declare global {
     clover?: any;
     xdc?: any;
     okexchain?: any;
+    tronLink?: any;
   }
 }
 
