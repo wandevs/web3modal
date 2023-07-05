@@ -78,7 +78,7 @@ export class Core {
 
   public connect = (): Promise<any> =>
     new Promise(async (resolve, reject) => {
-      console.log('connecting...');
+      console.log('connecting...toggleModal');
       this.on(CONNECT_EVENT, provider => resolve(provider));
       this.on(ERROR_EVENT, error => reject(error));
       this.on(CLOSE_EVENT, () => reject("Modal closed by user"));
@@ -91,6 +91,7 @@ export class Core {
       this.on(ERROR_EVENT, error => reject(error));
       this.on(CLOSE_EVENT, () => reject("Modal closed by user"));
       const provider = this.providerController.getProvider(id);
+      console.log('connectTo fn', id, provider);
       if (!provider) {
         return reject(
           new Error(
@@ -102,10 +103,12 @@ export class Core {
     });
 
   public async toggleModal(): Promise<void> {
+    console.log('toggleModal', this.cachedProvider)
     if (this.cachedProvider) {
       await this.providerController.connectToCachedProvider();
       return;
     }
+    console.log('toggleModal userOptions', this.userOptions)
     if (
       this.userOptions &&
       this.userOptions.length === 1 &&
@@ -179,6 +182,7 @@ export class Core {
   }
 
   private _toggleModal = async () => {
+    console.log('_toggleModal')
     const d = typeof window !== "undefined" ? document : "";
     const body = d ? d.body || d.getElementsByTagName("body")[0] : "";
     if (body) {
@@ -199,6 +203,7 @@ export class Core {
   };
 
   private onProviderSelect = (providerId: string) => {
+    console.log('providerId', providerId)
     this.eventController.trigger(SELECT_EVENT, providerId);
   };
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Web3 from "web3";
 import { convertUtf8ToHex } from "@walletconnect/utils";
 import { WanWalletConnector } from '@web3-react-wan/wanwallet-connector'
-import Web3Modal from "../../";
+import Web3Modal, { providers } from "../../";
 // @ts-ignore
 // import WalletConnectProvider from "@walletconnect/web3-provider";
 // @ts-ignore
@@ -18,6 +18,8 @@ import WalletConnect from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 // @ts-ignore
 import Torus from "@toruslabs/torus-embed";
+// @ts-ignore
+import TronWeb from 'tronweb';
 
 import Button from "./components/Button";
 import Column from "./components/Column";
@@ -198,32 +200,49 @@ class App extends React.Component<any, any> {
   public onConnect = async () => {
     console.log('call web3Modal.connect()');
     const provider = await this.web3Modal.connect();
-    console.log('call web3Modal.connect() return');
+    console.log('call web3Modal.connect() return', provider);
 
     await this.subscribeProvider(provider);
 
-    await provider.enable();
-    const web3: any = initWeb3(provider);
-
-    const accounts = await web3.eth.getAccounts();
-
-    const address = accounts[0];
-
-    const networkId = await web3.eth.net.getId();
-
-    const chainId = await web3.eth.chainId();
-
-    console.log('web3 get');
-
-    await this.setState({
-      web3,
-      provider,
-      connected: true,
-      address,
-      chainId,
-      networkId
-    });
-    await this.getAccountAssets();
+    if (provider.enable) {
+      await provider.enable();
+      const web3: any = initWeb3(provider);
+  
+      const accounts = await web3.eth.getAccounts();
+  
+      const address = accounts[0];
+  
+      const networkId = await web3.eth.net.getId();
+  
+      const chainId = await web3.eth.chainId();
+  
+      console.log('web3 get');
+  
+      await this.setState({
+        web3,
+        provider,
+        connected: true,
+        address,
+        chainId,
+        networkId
+      });
+      await this.getAccountAssets();
+    } else {
+      const web3: any = provider;
+      const accounts = await web3.getAccounts();
+      const address = accounts[0];
+      const chainId = await web3.getChainId();
+      const networkId = await web3.getId();
+      await this.setState({
+        web3,
+        provider,
+        connected: true,
+        address,
+        chainId,
+        networkId
+      });
+      await this.getAccountAssets();
+    }
   };
 
   public subscribeProvider = async (provider: any) => {
@@ -269,7 +288,7 @@ class App extends React.Component<any, any> {
         }
       },
       tron: {
-        package: {},
+        package: TronWeb,
         opts: {
           config: {}
         }
@@ -323,11 +342,30 @@ class App extends React.Component<any, any> {
   };
 
   public getAccountAssets = async () => {
-    const { address, chainId } = this.state;
+    const { address, chainId, provider } = this.state;
     this.setState({ fetching: true });
     try {
       // get account balances
-      const assets = await apiGetAccountAssets(address, chainId);
+      let assets: IAssetData[];
+
+  //     symbol: string;
+  // name: string;
+  // decimals: string;
+  // contractAddress: string;
+  // balance?: string;
+
+      if (provider.type === 'others') {
+        const balance = await provider.getBalance(address);
+        assets = [{
+          symbol: 'trx',
+          name: 'tron',
+          decimals: '6',
+          contractAddress: 'TE6mKbKrwPTamWFZiT35UG7JwaUrQtSz3S',
+          balance
+        }]
+      } else {
+        assets = await apiGetAccountAssets(address, chainId);
+      }
 
       await this.setState({ fetching: false, assets });
     } catch (error) {
@@ -564,6 +602,11 @@ class App extends React.Component<any, any> {
             chainId={chainId}
             killSession={this.resetApp}
           />
+          {fetching}-{fetching.toString()}
+          {JSON.stringify(assets)}-
+          {assets.length}-
+          {String(!!assets)}-+
+          {String(!!assets.length)}-
           <SContent>
             {fetching ? (
               <Column center>
@@ -636,7 +679,7 @@ class App extends React.Component<any, any> {
             </SModalContainer>
           ) : result ? (
             <SModalContainer>
-              <SModalTitle>{"Call Request Approved"}</SModalTitle>
+              <SModalTitle>{"Call Request Approved"}</SModalTitle>1
               <ModalResult>{result}</ModalResult>
             </SModalContainer>
           ) : (

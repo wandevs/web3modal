@@ -30,6 +30,7 @@ declare global {
     xdc?: any;
     okexchain?: any;
     tronLink?: any;
+    tronWeb?: any;
   }
 }
 

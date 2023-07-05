@@ -40,6 +40,7 @@ const AccountAssets = (props: any) => {
         : false
     );
   }
+  console.log('tokens', tokens)
   return (
     <Column center>
       <AssetRow key={nativeCurrency.name} asset={nativeCurrency} />

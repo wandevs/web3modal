@@ -8,6 +8,7 @@ import {
   handleSignificantDecimals,
   convertAmountFromRawNumber,
 } from "../helpers/bignumber";
+import BigNumber from 'bignumber.js';
 
 const SAssetRow = styled.div`
   width: 100%;
@@ -37,6 +38,10 @@ const AssetRow = (props: any) => {
       : asset.symbol && asset.symbol.toLowerCase() === "xdai"
       ? xdai
       : null;
+
+  console.log('handleSignificantDecimals(convertAmountFromRawNumber(asset.balance),8)', asset.balance,
+  convertAmountFromRawNumber(asset.balance),
+  handleSignificantDecimals( convertAmountFromRawNumber(asset.balance), 8 ), new BigNumber(asset.balance).div(Math.pow(10, asset.decimals)).toString())
   return (
     <SAssetRow {...props}>
       <SAssetRowLeft>
@@ -50,7 +55,7 @@ const AssetRow = (props: any) => {
       <SAssetRowRight>
         <SAssetBalance>
           {`${handleSignificantDecimals(
-            convertAmountFromRawNumber(asset.balance),
+            convertAmountFromRawNumber(asset.balance, asset.decimals),
             8
           )} ${asset.symbol}`}
         </SAssetBalance>

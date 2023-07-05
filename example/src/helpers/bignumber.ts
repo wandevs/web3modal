@@ -150,6 +150,7 @@ export function convertAmountFromRawNumber(
   value: string | number,
   decimals: number = 18
 ): string {
+  console.log('value2', value, new BigNumber(1).dividedBy(new BigNumber('10').pow(decimals)).toString())
   return new BigNumber(`${value}`)
     .dividedBy(new BigNumber('10').pow(decimals))
     .toString()
@@ -175,6 +176,7 @@ export function handleSignificantDecimals(
   } else {
     decimals = decimals < buffer ? decimals : buffer
   }
+  console.log('decimals', decimals, value, smallerThan(absolute, 1), value.slice(2).search(/[^0]/g) + buffer)
   let result = new BigNumber(`${value}`).toFixed(decimals)
   result = new BigNumber(`${result}`).toString()
   return Number(new BigNumber(`${result}`).dp()) <= 2

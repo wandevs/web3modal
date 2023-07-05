@@ -259,6 +259,6 @@ export const TRON: IProviderInfo = {
   id: "tron",
   name: "Tron",
   logo: TronLogo,
-  type: "web",
+  type: "others",
   check: "tron"
 };
