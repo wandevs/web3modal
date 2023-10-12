@@ -1,45 +1,33 @@
-import { IAbstractConnectorOptions, getChainId } from "../../helpers";
+import { IAbstractConnectorOptions } from "../../helpers";
 
 export interface IWalletConnectConnectorOptions
   extends IAbstractConnectorOptions {
-  infuraId?: string;
-  rpc?: { [chainId: number]: string };
-  bridge?: string;
-  qrcode?: boolean;
-  qrcodeModalOptions?: { mobileLinks?: string[] };
+  projectId: string;
+  chains: number[];
+  optionalChains?: number[];
+  showQrModal?: boolean;
+  rpcMap?: { [chainId: number]: string };
 }
 
 const ConnectToWalletConnect = (
-  WalletConnectProvider: any,
+  EthereumProvider: any,
   opts: IWalletConnectConnectorOptions
 ) => {
+  console.log('ConnectToWalletConnect', EthereumProvider, opts);
   return new Promise(async (resolve, reject) => {
-    let bridge = "https://bridge.walletconnect.org";
-    let qrcode = true;
-    let infuraId = "";
-    let rpc = undefined;
-    let chainId = 1;
-    let qrcodeModalOptions = undefined;
-
-    if (opts) {
-      bridge = opts.bridge || bridge;
-      qrcode = typeof opts.qrcode !== "undefined" ? opts.qrcode : qrcode;
-      infuraId = opts.infuraId || "";
-      rpc = opts.rpc || undefined;
-      chainId =
-        opts.network && getChainId(opts.network) ? getChainId(opts.network) : 1;
-      qrcodeModalOptions = opts.qrcodeModalOptions || undefined;
-    }
-
-    const provider = new WalletConnectProvider({
-      bridge,
-      qrcode,
-      infuraId,
-      rpc,
-      chainId,
-      qrcodeModalOptions
-    });
     try {
+      const provider = await EthereumProvider.init({
+        projectId: opts.projectId, // REQUIRED your projectId
+        chains: opts.chains, // REQUIRED chain ids
+        showQrModal: opts.showQrModal ? opts.showQrModal : true, // REQUIRED set to "true" to use @walletconnect/modal
+        optionalChains: opts.optionalChains, // OPTIONAL optional chain ids
+        // methods, // OPTIONAL ethereum methods
+        // events, // OPTIONAL ethereum events
+        // rpcMap, // OPTIONAL rpc urls for each chain
+        // metadata, // OPTIONAL metadata of your app
+        // qrModalOptions // OPTIONAL - `undefined` by default, see https://docs.walletconnect.com/2.0/web3modal/options
+      })
+
       await provider.enable();
       resolve(provider);
     } catch (e) {
