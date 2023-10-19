@@ -1,6 +1,6 @@
 {
   "name": "@wandevs/web3modal",
-  "version": "1.17.1",
+  "version": "1.17.2",
   "description": "A single Web3 / Ethereum provider solution for all Wallets",
   "keywords": [
     "web3",
