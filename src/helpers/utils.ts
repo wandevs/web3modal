@@ -184,7 +184,7 @@ export function filterProviderChecks(checks: string[]): string {
   if (!!checks && checks.length) {
     if (checks.length > 1) {
       if (
-        checks[0] === injected.METAMASK.check ||
+        // checks[0] === injected.METAMASK.check ||
         checks[0] === injected.CIPHER.check
       ) {
         return checks[1];

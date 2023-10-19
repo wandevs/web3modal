@@ -73,13 +73,13 @@ export const FALLBACK: IProviderInfo = {
 //   check: "isClover"
 // };
 
-export const METAMASK: IProviderInfo = {
-  id: "injected",
-  name: "MetaMask",
-  logo: MetaMaskLogo,
-  type: "injected",
-  check: "isMetaMask"
-};
+// export const METAMASK: IProviderInfo = {
+//   id: "injected",
+//   name: "MetaMask",
+//   logo: MetaMaskLogo,
+//   type: "injected",
+//   check: "isMetaMask"
+// };
 
 export const SAFE: IProviderInfo = {
   id: "injected",
