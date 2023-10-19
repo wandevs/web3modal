@@ -17,6 +17,7 @@ import ezdefi from './ezdefi';
 import clover from './clover';
 import xdc from './xdc';
 import metax from './metax';
+import metamask from './metamask';
 import binancechainwallet from "./binancechainwallet";
 import coinbasewallet, { walletlink } from "./coinbasewallet";
 import sequence from "./sequence";
@@ -36,6 +37,7 @@ export {
   dcentwallet,
   bitski,
   frame,
+  metamask,
   wanmask,
   wanwallet,
   ezdefi,

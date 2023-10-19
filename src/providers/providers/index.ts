@@ -33,6 +33,8 @@ import XDCLogo from "../logos/XDC.png";
 // @ts-ignore
 import METAXLogo from "../logos/METAX.png";
 // @ts-ignore
+import MetaMaskLogo from "../logos/metamask.svg";
+// @ts-ignore
 import BinanceChainWalletLogo from "../logos/binancechainwallet.svg";
 // @ts-ignore
 import CoinbaseWalletLogo from "../logos/coinbasewallet.svg";
@@ -202,6 +204,14 @@ export const METAX: IProviderInfo = {
   logo: METAXLogo,
   type: "web",
   check: "metax"
+};
+
+export const METAMASK: IProviderInfo = {
+  id: "metamask",
+  name: "Meta Mask",
+  logo: MetaMaskLogo,
+  type: "web",
+  check: "isMetaMask"
 };
 
 export const BINANCECHAINWALLET: IProviderInfo = {
