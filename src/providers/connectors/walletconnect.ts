@@ -24,6 +24,7 @@ const ConnectToWalletConnect = (
         // methods, // OPTIONAL ethereum methods
         // events, // OPTIONAL ethereum events
         // rpcMap, // OPTIONAL rpc urls for each chain
+        rpcMap: opts.rpcMap,
         // metadata, // OPTIONAL metadata of your app
         // qrModalOptions // OPTIONAL - `undefined` by default, see https://docs.walletconnect.com/2.0/web3modal/options
       })
